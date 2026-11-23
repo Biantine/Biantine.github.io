@@ -31,6 +31,12 @@
         background: #eceef2;
         font-family: ui-monospace, Consolas, monospace;
       }
+      /* 关键：[hidden] 的 UA 样式是 display:none，但作者样式里的 display:flex 会覆盖它，
+         所以必须显式写一条，否则兜底页会一直盖在界面上 */
+      [hidden] {
+        display: none !important;
+      }
+
       #boot-loading {
         position: fixed;
         inset: 0;
@@ -62,7 +68,7 @@
         word-break: break-all;
         max-width: 640px;
       }
-    </style><meta content="2.1.6" name="application-version"><script defer src="static/js/main.4fc1b48a.js"></script><link href="static/css/main.86cef4d5.css" rel="stylesheet"></head><body><div id="root"></div>
+    </style><meta content="2.1.7" name="application-version"><script defer src="static/js/main.4fc1b48a.js"></script><link href="static/css/main.86cef4d5.css" rel="stylesheet"></head><body><div id="root"></div>
 
     <div id="boot-loading">
       <span class="dot"></span>
