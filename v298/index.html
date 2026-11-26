@@ -1,0 +1,85 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ffffff"><meta name="description" content="Biantine Chat · 基于 DeepSeek 模型的多功能聊天前端，支持官方 API 与中转站"><meta name="author" content="Biantine弁汀"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Biantine"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><title>Biantine Chat</title><style>
+      /* 兜底页：脚本没加载成功时不至于白屏 */
+      #boot-fallback {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        padding: 32px;
+        box-sizing: border-box;
+        background: #f7f8fa;
+        color: #1f2329;
+        font: 14px/1.7 system-ui, -apple-system, 'Microsoft YaHei', sans-serif;
+        text-align: center;
+      }
+      #boot-fallback h1 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      #boot-fallback p {
+        margin: 0;
+        max-width: 520px;
+        color: #5a6472;
+      }
+      #boot-fallback code {
+        padding: 1px 5px;
+        border-radius: 4px;
+        background: #eceef2;
+        font-family: ui-monospace, Consolas, monospace;
+      }
+      /* 关键：[hidden] 的 UA 样式是 display:none，但作者样式里的 display:flex 会覆盖它，
+         所以必须显式写一条，否则兜底页会一直盖在界面上 */
+      [hidden] {
+        display: none !important;
+      }
+
+      #boot-loading {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        background: #fff;
+        color: #5a6472;
+        font: 13px/1.6 system-ui, -apple-system, 'Microsoft YaHei', sans-serif;
+      }
+      #boot-loading .dot {
+        width: 28px;
+        height: 28px;
+        border: 2px solid #e3e6ec;
+        border-top-color: #3972fe;
+        border-radius: 50%;
+        animation: boot-spin 0.9s linear infinite;
+      }
+      @keyframes boot-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      #boot-fallback-detail {
+        font: 12px/1.6 ui-monospace, Consolas, monospace;
+        color: #b04a4a;
+        word-break: break-all;
+        max-width: 640px;
+      }
+    </style><meta content="2.9.8" name="application-version"><script defer src="static/js/main.6f30bca6.js"></script><link href="static/css/main.a3526240.css" rel="stylesheet"></head><body><div id="root"></div>
+
+    <div id="boot-loading">
+      <span class="dot"></span>
+      <span>正在加载 Biantine Chat…（首次打开可能需要几秒）</span>
+    </div>
+
+    <div id="boot-fallback" hidden>
+      <h1>页面没能正常启动</h1>
+      <p>如果你是从<strong>压缩包里直接双击</strong>打开的，Windows 只会把 <code>index.html</code> 单独解压到临时目录，脚本和样式都不在，所以是白屏。</p>
+      <p>正确做法：把整个文件夹<strong>解压出来</strong>，然后双击 <code>start.bat</code>（会自动开一个本地地址）；或者解压后直接双击 <code>index.html</code>。</p>
+      <div id="boot-fallback-detail"></div>
+    </div>
+
+    <script>!function(){var e=document.getElementById("boot-fallback"),t=document.getElementById("boot-fallback-detail"),n=document.getElementById("root"),o=!1;function d(n){e&&!o&&(o=!0,e.hidden=!1,t&&n&&(t.textContent=n))}n&&"MutationObserver"in window&&new MutationObserver(function(){var d;n.childElementCount>0&&((d=document.getElementById("boot-loading"))&&d.remove(),e&&(o=!1,e.hidden=!0,t&&(t.textContent="")))}).observe(n,{childList:!0}),window.addEventListener("error",function(e){var t=e.target;t&&("SCRIPT"===t.tagName||"LINK"===t.tagName)?d("未能加载："+(t.src||t.href)):e.message&&d("脚本错误："+e.message)},!0)}()</script></body></html>
